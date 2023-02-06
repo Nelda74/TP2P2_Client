@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TP2P2_Client (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TP2P2_Client (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
