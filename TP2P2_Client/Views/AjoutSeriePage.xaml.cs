@@ -29,6 +29,7 @@ namespace TP2P2_Client.Views
         public AjoutSeriePage()
         {
             this.InitializeComponent();
+            DataContext = ((App)Application.Current).AjoutSerie;
         }
     }
 }

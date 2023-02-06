@@ -70,7 +70,7 @@ namespace TP2P2_Client
 
             m_window.Activate();
 
-            rootFrame.Navigate(typeof(HomePage));
+            rootFrame.Navigate(typeof(AjoutSeriePage));
         }
 
         private Window m_window;
