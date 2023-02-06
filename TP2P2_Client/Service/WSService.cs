@@ -24,7 +24,7 @@ namespace TP2P2_Client.Service
                 new MediaTypeWithQualityHeaderValue("application/json")
             );
         }
-        public async Task<List<Serie>> GetSeriesAsync(string nomControleur)
+        public async Task<List<Serie>> GetSeriesAsync()
         {
             return await client.GetFromJsonAsync<List<Serie>>("/api/series");
         }

@@ -11,22 +11,26 @@ namespace TP2P2_Client.Service.Tests
     [TestClass()]
     public class WSServiceTests
     {
-        [ClassInitialize]
-        public void ClassInitialize(TestContext context) 
+        public WSService Service
         {
-            
+            get { return Service; }
+            set { Service = value; }
         }
 
         [TestMethod()]
         public void WSServiceTest()
         {
-            Assert.Fail();
+            Service = new WSService("https://apiservicecherad.azurewebsites.net");
+
+            Assert.IsNotNull(Service);
         }
 
         [TestMethod()]
-        public void GetSeriesAsyncTest()
+        public async void GetSeriesAsyncTest()
         {
-            Assert.Fail();
+            var series = await Service.GetSeriesAsync();
+
+            Assert.IsNotNull(series);
         }
 
         [TestMethod()]

@@ -10,7 +10,7 @@ namespace TP2P2_Client.Service
 {
     public interface IService
     {
-        Task<List<Serie>> GetSeriesAsync(string nomControleur);
+        Task<List<Serie>> GetSeriesAsync();
         Task<HttpResponseMessage> PutSerieAsync(Serie serie, int id);
         Task<HttpResponseMessage> PostSerieAsync(Serie serie);
         Task<HttpResponseMessage> DeleteSerieAsync(int id);
