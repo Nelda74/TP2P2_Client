@@ -15,31 +15,33 @@
         <StackPanel Margin="0,25">
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
-                <TextBox />
+                <TextBox Text="{Binding Titre}" />
             </StackPanel>
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Resume" />
-                <TextBox MinHeight="150" />
+                <TextBox Text="{Binding Resume}" MinHeight="150" />
             </StackPanel>
             <RelativePanel Margin="25,10" HorizontalAlignment="Center">
                 <StackPanel Margin="12 0" Name="seasonCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Nb de saisons" />
-                    <TextBox />
+                    <TextBox Text="{Binding NbSaison}" />
                 </StackPanel>
                 <StackPanel Margin="12 0" Name="episodeCount" RelativePanel.RightOf="seasonCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Nb d'episodes" />
-                    <TextBox />
+                    <TextBox Text="{Binding NbEpisode}" />
                 </StackPanel>
                 <StackPanel Margin="12 0" Name="year" RelativePanel.RightOf="episodeCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Annee" />
-                    <TextBox />
+                    <TextBox Text="{Binding Year}"/>
                 </StackPanel>
             </RelativePanel>
             <StackPanel HorizontalAlignment="Center" Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Chaine" />
-                <TextBox MinWidth="200" />
+                <TextBox Text="{Binding Chaine}" MinWidth="200" />
             </StackPanel>
-            <Button Margin="25,10" Content="Ajouter" />
+            <StackPanel HorizontalAlignment="Center">
+                <Button Margin="25,10" Content="Ajouter" />                
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
