@@ -15,32 +15,32 @@
         <StackPanel Margin="0,25">
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
-                <TextBox Text="{Binding Titre}" />
+                <TextBox Text="{Binding Titre, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Resume" />
-                <TextBox Text="{Binding Resume}" MinHeight="150" />
+                <TextBox Text="{Binding Resume, Mode=TwoWay}" MinHeight="150" />
             </StackPanel>
             <RelativePanel Margin="25,10" HorizontalAlignment="Center">
                 <StackPanel Margin="12 0" Name="seasonCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Nb de saisons" />
-                    <TextBox Text="{Binding NbSaison}" />
+                    <TextBox Text="{Binding NbSaisons, Mode=TwoWay}" />
                 </StackPanel>
                 <StackPanel Margin="12 0" Name="episodeCount" RelativePanel.RightOf="seasonCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Nb d'episodes" />
-                    <TextBox Text="{Binding NbEpisode}" />
+                    <TextBox Text="{Binding NbEpisodes, Mode=TwoWay}" />
                 </StackPanel>
                 <StackPanel Margin="12 0" Name="year" RelativePanel.RightOf="episodeCount">
                     <TextBlock HorizontalTextAlignment="Center" Text="Annee" />
-                    <TextBox Text="{Binding Year}"/>
+                    <TextBox Text="{Binding Year, Mode=TwoWay}"/>
                 </StackPanel>
             </RelativePanel>
             <StackPanel HorizontalAlignment="Center" Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Chaine" />
-                <TextBox Text="{Binding Chaine}" MinWidth="200" />
+                <TextBox Text="{Binding Chaine, Mode=TwoWay}" MinWidth="200" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
-                <Button Margin="25,10" Content="Ajouter" />                
+                <Button Command="{Binding AjoutSerie}" Margin="25,10" Content="Ajouter" />                
             </StackPanel>
         </StackPanel>
     </Grid>
