@@ -48,7 +48,7 @@
             <StackPanel HorizontalAlignment="Center">
                 <Button
                     Margin="25,10"
-                    Command="{Binding BtnSetAjoutSerie}"
+                    Command="{Binding BtnSetSerie}"
                     Content="Ajouter" />
             </StackPanel>
         </StackPanel>

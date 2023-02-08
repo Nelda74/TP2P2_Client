@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,19 +15,11 @@ using TP2P2_Client.Service;
 
 namespace TP2P2_Client.ViewModels
 {
-    public class AjoutSerieVM : ObservableObject
+    public class AjoutSerieVM : SerieVM
     {
-        public RelayCommand BtnSetAjoutSerie { get; }
         public AjoutSerieVM() 
         {
-            BtnSetAjoutSerie = new RelayCommand(AjoutSerieBtn);
             SerieToAdd = new Serie();
-        }
-        public ServiceProvider Services { get; }
-
-        public IService ObjWSService
-        {
-            get { return ((App)Application.Current).ObjWSService; }
         }
 
         private Serie serieToAdd;
@@ -40,7 +33,7 @@ namespace TP2P2_Client.ViewModels
             }
         }
 
-        public void AjoutSerieBtn()
+        internal override async void BtnActionSerie()
         {
             //WSService service = new WSService("https://apiservicecherad.azurewebsites.net");
 
@@ -70,28 +63,16 @@ namespace TP2P2_Client.ViewModels
                 return;
             }
 
-            var request = ObjWSService.PostSerieAsync(SerieToAdd);
+            var request = await ObjWSService.PostSerieAsync(SerieToAdd);
 
-            if(request.Result.IsSuccessStatusCode)
+            if(request.IsSuccessStatusCode)
             {
-                ShowAsync("Succès !", $"La série {SerieToAdd.Titre} a bien été ajoutée");
+                ShowAsync("Succès !", $"La série \"{SerieToAdd.Titre}\" a bien été ajoutée");
+                SerieToAdd = new Serie();
             } else
             {
                 ShowAsync("Erreur !", "Votre requête n'a pu aboutir");
             }
-        }
-
-        private async void ShowAsync(String title, String message)
-        {
-            ContentDialog msgDialog = new ContentDialog()
-            {
-                Title = title,
-                Content = message,
-                CloseButtonText = "Ok"
-            };
-
-            msgDialog.XamlRoot = App.MainRoot.XamlRoot;
-            await msgDialog.ShowAsync();
         }
     }
 }
