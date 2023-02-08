@@ -10,6 +10,10 @@ namespace TP2P2_Client.Models
 {
     public class Serie
     {
+        public Serie()
+        {
+        }
+
         public Serie(string titre, string resume, int? nbsaisons, int? nbepisodes, int? anneecreation, string network)
         {
             Titre = titre;

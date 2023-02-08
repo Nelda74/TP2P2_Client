@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TP2P2_Client.Service;
 using TP2P2_Client.ViewModels;
 using TP2P2_Client.Views;
 using Windows.ApplicationModel;
@@ -51,6 +52,7 @@ namespace TP2P2_Client
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                 .AddSingleton<AjoutSerieVM>()
+                .AddSingleton<IService, WSService>()
                 .BuildServiceProvider());
         }
 
