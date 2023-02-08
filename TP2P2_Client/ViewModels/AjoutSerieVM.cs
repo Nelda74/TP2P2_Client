@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace TP2P2_Client.ViewModels
 
         public IService ObjWSService
         {
-            get { return Services.GetService<IService>(); }
+            get { return ((App)Application.Current).ObjWSService; }
         }
 
         private Serie serieToAdd;
@@ -41,7 +42,7 @@ namespace TP2P2_Client.ViewModels
 
         public void AjoutSerieBtn()
         {
-            WSService service = new WSService("https://apiservicecherad.azurewebsites.net");
+            //WSService service = new WSService("https://apiservicecherad.azurewebsites.net");
 
             if(string.IsNullOrEmpty(SerieToAdd.Titre))
             {

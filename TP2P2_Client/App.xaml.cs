@@ -41,6 +41,11 @@ namespace TP2P2_Client
             get { return Ioc.Default.GetService<AjoutSerieVM>(); }
         }
 
+        public IService ObjWSService
+        {
+            get { return new WSService("https://apiservicecherad.azurewebsites.net"); }
+        } 
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
