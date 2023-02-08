@@ -28,17 +28,31 @@ namespace TP2P2_Client.ViewModels
             get { return ((App)Application.Current).ObjWSService; }
         }
 
-        internal async void ShowAsync(String title, String message)
+        internal async Task<ContentDialog> ShowAsync(String title, String message, bool? closeBtn)
         {
-            ContentDialog msgDialog = new ContentDialog()
+            ContentDialog msgDialog = new ContentDialog();
+            if (closeBtn == null)
             {
-                Title = title,
-                Content = message,
-                CloseButtonText = "Ok"
-            };
+                msgDialog = new ContentDialog()
+                {
+                    Title = title,
+                    Content = message,
+                    CloseButtonText = "Ok"
+                };
+            } else if (closeBtn == false)
+            {
+                msgDialog = new ContentDialog()
+                {
+                    Title = title,
+                    Content = message,
+                };
+            }
+
+
 
             msgDialog.XamlRoot = App.MainRoot.XamlRoot;
             await msgDialog.ShowAsync();
+            return msgDialog;
         }
 
         internal abstract void BtnActionSerie();

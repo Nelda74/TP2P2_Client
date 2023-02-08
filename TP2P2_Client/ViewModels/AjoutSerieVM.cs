@@ -39,27 +39,27 @@ namespace TP2P2_Client.ViewModels
 
             if(string.IsNullOrEmpty(SerieToAdd.Titre))
             {
-                ShowAsync("Erreur", "Le titre doit être renseigné !");
+                ShowAsync("Erreur", "Le titre doit être renseigné !", true);
                 return;
             } else if (string.IsNullOrEmpty(SerieToAdd.Resume))
             {
-                ShowAsync("Erreur", "Le resumé doit être renseigné !");
+                ShowAsync("Erreur", "Le resumé doit être renseigné !", true);
                 return; 
             } else if (SerieToAdd.Anneecreation== 0)
             {
-                ShowAsync("Erreur", "L'année doit être renseignée !");
+                ShowAsync("Erreur", "L'année doit être renseignée !", true);
                 return;
             } else if (SerieToAdd.Nbepisodes== 0)
             {
-                ShowAsync("Erreur", "Le nombre d'épisodes doit être renseigné !");
+                ShowAsync("Erreur", "Le nombre d'épisodes doit être renseigné !", true);
                 return;
             } else if (serieToAdd.Nbsaisons== 0)
             {
-                ShowAsync("Erreur", "Le nombre de saisons doit être renseigné !");
+                ShowAsync("Erreur", "Le nombre de saisons doit être renseigné !", true);
                 return;
             } else if (string.IsNullOrEmpty(SerieToAdd.Network))
             {
-                ShowAsync("Erreur", "La chaine doit être renseignée !");
+                ShowAsync("Erreur", "La chaine doit être renseignée !", true);
                 return;
             }
 
@@ -67,11 +67,11 @@ namespace TP2P2_Client.ViewModels
 
             if(request.IsSuccessStatusCode)
             {
-                ShowAsync("Succès !", $"La série \"{SerieToAdd.Titre}\" a bien été ajoutée");
+                ShowAsync("Succès !", $"La série \"{SerieToAdd.Titre}\" a bien été ajoutée", true);
                 SerieToAdd = new Serie();
             } else
             {
-                ShowAsync("Erreur !", "Votre requête n'a pu aboutir");
+                ShowAsync("Erreur !", "Votre requête n'a pu aboutir", true);
             }
         }
     }
