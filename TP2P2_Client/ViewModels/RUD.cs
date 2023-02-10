@@ -64,6 +64,7 @@ namespace TP2P2_Client.ViewModels
                 if(request.IsSuccessStatusCode)
                 {
                     ShowAsync("Succès", $"La série n°{QSerie.Serieid} ({QSerie.Titre}) a bien été supprimée", true);
+                    QSerie = new Serie();
                 } else
                 {
                     ShowAsync("Erreur", $"La série n°{QSerie.Serieid} ({QSerie.Titre}) n'a pas été supprimée", true);
