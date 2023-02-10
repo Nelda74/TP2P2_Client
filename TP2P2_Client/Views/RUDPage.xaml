@@ -13,13 +13,18 @@
 
     <Grid>
         <StackPanel Margin="0,25">
-            <StackPanel Margin="25,10">
-                <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
-                <NumberBox Text="{Binding Query, Mode=TwoWay}" />
-                <StackPanel Margin="25,10" HorizontalAlignment="Center">
-                    <Button Command="{Binding BtnSetSerie}" Content="Rechercher" />
+            <RelativePanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                <StackPanel Name="searchById" Margin="25,10">
+                    <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
+                    <NumberBox Text="{Binding Query, Mode=TwoWay}" />
+                    <StackPanel Margin="25,10" HorizontalAlignment="Center">
+                        <Button Command="{Binding BtnSetSerie}" Content="Rechercher" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+                <StackPanel RelativePanel.AlignVerticalCenterWith="searchById" RelativePanel.RightOf="searchById">
+                    <ComboBox ItemsSource="{Binding AllSeries}" SelectedItem="{Binding QSerie, Mode=TwoWay}" DisplayMemberPath="Titre" />
+                </StackPanel>                
+            </RelativePanel>
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
                 <TextBox Text="{Binding QSerie.Titre, Mode=TwoWay}" />

@@ -13,6 +13,10 @@
 
     <Grid>
         <StackPanel Margin="0,25">
+            <StackPanel>
+                <Button Content="Ajouter" />
+                <Button Content="Modifier/Supprimer" />
+            </StackPanel>
             <StackPanel Margin="25,10">
                 <TextBlock HorizontalTextAlignment="Center" Text="Titre" />
                 <TextBox Text="{Binding SerieToAdd.Titre, Mode=TwoWay}" />

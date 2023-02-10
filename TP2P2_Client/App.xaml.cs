@@ -19,7 +19,9 @@ namespace TP2P2_Client
     /// </summary>
     public partial class App : Application
     {
-        public static FrameworkElement MainRoot { get; private set; }
+        private Window m_window;
+
+        public static FrameworkElement MainRoot { get; set; }
 
         public AjoutSerieVM AjoutSerie
         {
@@ -64,12 +66,9 @@ namespace TP2P2_Client
 
             MainRoot = m_window.Content as FrameworkElement;
 
-
             m_window.Activate();
 
             rootFrame.Navigate(typeof(RUDPage));
         }
-
-        private Window m_window;
     }
 }

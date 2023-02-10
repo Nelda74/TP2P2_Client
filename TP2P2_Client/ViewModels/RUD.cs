@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,17 @@ namespace TP2P2_Client.ViewModels
 {
     public class RUD : SerieVM
     {
+        private ObservableCollection<Serie> allSeries;
+
+        public ObservableCollection<Serie> AllSeries
+        {
+            get { return allSeries; }
+            set { 
+                allSeries = value; 
+                OnPropertyChanged(nameof(AllSeries));
+            }
+        }
+
         private Serie qSerie;
 
         public Serie QSerie
@@ -18,7 +30,7 @@ namespace TP2P2_Client.ViewModels
             get { return qSerie; }
             set { 
                 qSerie = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(QSerie));
             }
         }
         public RelayCommand DelBtn { get; }
@@ -45,6 +57,18 @@ namespace TP2P2_Client.ViewModels
             QSerie = new Serie();
             DelBtn = new RelayCommand(DelAction);
             EditBtn = new RelayCommand(EditAction);
+            getAllSeries();
+        }
+
+        private async void getAllSeries()
+        {
+            var tempList = await ObjWSService.GetSeriesAsync();
+
+            AllSeries = new ObservableCollection<Serie>();
+            foreach (Serie serie in tempList)
+            {
+                AllSeries.Add(serie);
+            }
         }
 
         public int Query

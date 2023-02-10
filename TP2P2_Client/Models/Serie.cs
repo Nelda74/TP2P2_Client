@@ -24,6 +24,13 @@ namespace TP2P2_Client.Models
             Network = network;
         }
 
+        public Serie(string titre, string resume, string network)
+        {
+            Titre = titre;
+            Resume = resume;
+            Network = network;
+        }
+
         [Key]
         [Column("serieid")]
         public int Serieid { get; set; }
@@ -36,13 +43,13 @@ namespace TP2P2_Client.Models
         public string? Resume { get; set; }
 
         [Column("nbsaisons")]
-        public int Nbsaisons { get; set; }
+        public int? Nbsaisons { get; set; }
 
         [Column("nbepisodes")]
-        public int Nbepisodes { get; set; }
+        public int? Nbepisodes { get; set; }
 
         [Column("anneecreation")]
-        public int Anneecreation { get; set; }
+        public int? Anneecreation { get; set; }
 
         [Column("network")]
         [StringLength(50)]
