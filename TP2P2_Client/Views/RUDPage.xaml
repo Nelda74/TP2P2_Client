@@ -52,9 +52,10 @@
                 <TextBlock HorizontalTextAlignment="Center" Text="Chaine" />
                 <TextBox MinWidth="200" Text="{Binding QSerie.Network, Mode=TwoWay}" />
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center">
-                <Button Margin="25,10" Content="Ajouter" />
-            </StackPanel>
+            <RelativePanel Margin="25,10" HorizontalAlignment="Center">
+                <Button Command="{Binding EditBtn}" CommandParameter="edit" Name="edit"  Padding="25 12" Content="Modifier" />
+                <Button Command="{Binding DelBtn}" CommandParameter="delete" Margin="12 0 0 0" Padding="25 12" Name="delete" RelativePanel.RightOf="edit" Content="Supprimer" />
+            </RelativePanel>
         </StackPanel>
     </Grid>
 </Page>

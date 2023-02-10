@@ -61,7 +61,7 @@ namespace TP2P2_Client.Service
 
         public async Task<HttpResponseMessage> PutSerieAsync(Serie serie, int id)
         {
-            using var response = await client.PostAsJsonAsync($"/api/series/{id}", serie); 
+            using var response = await client.PutAsJsonAsync($"/api/series/{id}", serie); 
             if(response.IsSuccessStatusCode)
             {
                 return response;
